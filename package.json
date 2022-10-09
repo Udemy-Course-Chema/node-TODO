@@ -1,0 +1,16 @@
+{
+  "name": "todo",
+  "version": "0.0.1",
+  "description": "\"App TODO\"",
+  "main": "app.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chm0x",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^9.1.3"
+  }
+}
