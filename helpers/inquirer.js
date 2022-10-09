@@ -6,10 +6,48 @@ const survey = [
         type: 'list',
         name: 'opcion',
         message: '¿Qué deseas hacer?',
-        choices: ['opt1','opt2','opt3']
+        choices: [
+            {
+                value: '1',
+                name: '1. Crear Tarea.',
+
+            },
+            {
+                value: '2',
+                name: '2. Listar Tareas.',
+
+            },
+            {
+                value: '3',
+                name: '3. Listar Tareas Completadas.',
+
+            },
+            {
+                value: '4',
+                name: '4. Listar Tareas Pendientes.',
+
+            },
+            {
+                value: '5',
+                name: '5. Completar Tarea(s).',
+
+            },
+            {
+                value: '6',
+                name: '6. Borrar Tarea(s).',
+
+            },
+            {
+                value: '0',
+                name: '0. Salir',
+
+            }
+        ]
 
     }
 ];
+
+
 
 const inquirerMenu = async() => {
     try{
@@ -18,17 +56,31 @@ const inquirerMenu = async() => {
         console.log('Seleccione una opción'.blue);
         console.log('=========================\n'.red);
 
-        const opt = await inquirer.prompt( survey );
+        const { opcion } = await inquirer.prompt( survey );
 
-        return opt;
+        return opcion;
     }catch( err ){
         console.log( err );
-        throw err;
     }
-    
-
 };
 
+const inquirerPause = async() => {
+    try{
+        const stopping = [
+            {
+                type: 'input',
+                name: 'enter',
+                message: `Presione ${ 'ENTER'.green } para continuar`,
+            }
+        ];
+        console.log('\n');
+        await inquirer.prompt( stopping );
+    }catch( err ){
+        throw err;
+    }
+}
+
 export {
-    inquirerMenu
+    inquirerMenu,
+    inquirerPause
 };

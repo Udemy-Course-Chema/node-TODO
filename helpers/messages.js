@@ -1,7 +1,9 @@
 import colors from 'colors';
+import * as readline from 'node:readline';
 
 
 const mostrarMenu = () => {
+  
   return new Promise( res => {
 
     console.clear();
@@ -16,13 +18,13 @@ const mostrarMenu = () => {
     console.log(`${ '5.'.green} Completar Tarea(s)`);
     console.log(`${ '0.'.green } Salir\n`);
     
-  const readline = require('readline').createInterface({
+  const leerLinea = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
-  readline.question('Seleccione una opción:', (opt) => {
-    readline.close();
+  leerLinea.question('Seleccione una opción:', (opt) => {
+    leerLinea.close();
     return res(opt);
   });
   } );
@@ -31,14 +33,14 @@ const mostrarMenu = () => {
 const pause = () =>{
   return new Promise( res => {
 
-  const readline = require('readline').createInterface({
+  const leerLinea = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
-  readline.question(`\nPresione ${ 'ENTER'.red } para continuar\n`, (opt) => {
+  leerLinea.question(`\nPresione ${ 'ENTER'.red } para continuar\n`, (opt) => {
     //console.log({ opt });
-    readline.close();
+    leerLinea.close();
     return res();
   });
   } );
